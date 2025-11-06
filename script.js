@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "¡HE HACKEADO TU CORAZÓN! ❤️\n\n",
             "Y ADIVINA QUIÉN MÁS ESTÁ AQUÍ...\n\n",
             "¡ES JIMMY! 👋\n\n",
-            "Dice que le caes bien (y a mí también 😉)"
+            "Dice que le caes bien "
         ];
         
         let index = 0;
