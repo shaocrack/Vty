@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "\n\n=== ACCESO A WHATSAPP CONCEDIDO ===\n[WHATSAPP] Buscando en chats recientes...\n",
         "\n\n=== ACCESO A FACEBOOK CONCEDIDO ===\n[FACEBOOK] Revisando fotos etiquetadas...\n",
         "\n\n=== ACCESO A INSTAGRAM CONCEDIDO ===\n[INSTAGRAM] Analizando historias...\n",
-        "\n\n¡OH OH! ALGO INTERESANTE ENCONTRADO (30/02/25):\n'Que buen muchacho es ese Jimmy, me conviene'\n\n[?] ¿Quién será este Jimmy? ¿Tu crush secreto? 😏",
+        "\n\n¡OH OH! UN MENSAJE INTERESANTE ENCONTRADO  EL (30/02/25):\n'Que buen muchacho es ese Jimmy, me conviene'\n\n[?] ¿Quién será este Jimmy? ¿Tu crush secreto? 😏",
         "\n\n⚠️ ⚠️ ⚠️\n¡SISTEMA DE SEGURIDAD DETECTADO!\nEl usuario intentó cerrar sesión\n\n[!] RÁPIDO, NECESITO QUE ME AYUDES A DETENER ESTO",
         `\n\n[!] ¡EMERGENCIA! Tienes ${attempts} intentos para adivinar la contraseña\n    antes de que se active el protocolo de seguridad.`,
         "\n[PISTA] Es el nombre del chico del mensaje que encontramos...\n        (¡y no, no es 'amor' ni 'tequiero'! 😅)"
