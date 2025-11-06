@@ -16,19 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMessageIndex = 0;
 
     const messages = [
-        "Iniciando secuencia de hackeo...",
-        "Accediendo al sistema...",
-        "Buscando vulnerabilidades...",
-        "Encontrando contraseñas...",
-        "Desencriptando datos...",
-        "Accediendo a redes sociales...",
-        "\n\n=== ACCESO A WHATSAPP CONCEDIDO ===\nBuscando conversaciones recientes...",
-        "\n\n=== ACCESO A FACEBOOK CONCEDIDO ===\nEscaneando mensajes privados...",
-        "\n\n=== ACCESO A INSTAGRAM CONCEDIDO ===\nRevisando mensajes directos...",
-        "\n\n¡INTERESANTE! Mensaje encontrado (24/08/25):\n'Que buen muchacho es ese Jimmy, me conviene'\n\n¿Quién será este Jimmy?",
-        "\n\n=== SISTEMA DE SEGURIDAD DETECTADO ===\n¡ALERTA! Se requiere contraseña para continuar",
-        `\n\nTienes ${attempts} intentos para adivinar la contraseña...`,
-        "Pista: Es el nombre del chico del mensaje que encontré ;)"
+        "[SISTEMA] Iniciando secuencia de hackeo...",
+        "[SISTEMA] Conectando al servidor remoto...",
+        "[SISTEMA] Ocultando dirección IP... (no vaya a ser que me atrapen)",
+        "[SISTEMA] Buscando puertos abiertos... (shhh, silencio que nos escuchan)",
+        "[SISTEMA] Encontrada vulnerabilidad: Usuario usa 'password123' en todas partes 😅",
+        "[SISTEMA] Desencriptando datos... (esto va a doler un poco)",
+        "\n\n=== ACCESO A WHATSAPP CONCEDIDO ===\n[WHATSAPP] Buscando en chats recientes...\n[WHATSAPP] Encontrado: 'Mamá' - '¿Ya comiste?' (clásica)",
+        "\n\n=== ACCESO A FACEBOOK CONCEDIDO ===\n[FACEBOOK] Revisando fotos etiquetadas...\n[FACEBOOK] Encontradas 127 fotos de comida (¿en serio?)",
+        "\n\n=== ACCESO A INSTAGRAM CONCEDIDO ===\n[INSTAGRAM] Analizando historias...\n[INSTAGRAM] Última historia: Un café con forma de corazón (qué cursi)",
+        "\n\n¡OH OH! ALGO INTERESANTE ENCONTRADO (24/08/25):\n'Que buen muchacho es ese Jimmy, me conviene'\n\n[?] ¿Quién será este Jimmy? ¿Tu crush secreto? 😏",
+        "\n\n⚠️ ⚠️ ⚠️\n¡SISTEMA DE SEGURIDAD DETECTADO!\nEl usuario intentó cerrar sesión\n\n[!] RÁPIDO, NECESITO QUE ME AYUDES A DETENER ESTO",
+        `\n\n[!] ¡EMERGENCIA! Tengo ${attempts} intentos para adivinar la contraseña\n    antes de que se active el protocolo de seguridad.`,
+        "\n[PISTA] Es el nombre del chico del mensaje que encontramos...\n        (¡y no, no es 'amor' ni 'tequiero'! 😅)"
     ];
 
     startBtn.addEventListener('click', startHacking);
@@ -55,13 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function showPasswordInput() {
         const passwordHTML = `
             <div id="password-prompt">
-                <p>¡SISTEMA BLOQUEADO!</p>
-                <p>Ingresa la contraseña para detener el hackeo</p>
-                <p>Intentos restantes: <span id="attempts">${attempts}</span></p>
+                <p class="warning-text">🚨 ¡SISTEMA BLOQUEADO! 🚨</p>
+                <p>¡RÁPIDO! Ingresa la contraseña para detener el hackeo</p>
+                <p>⏳ Intentos restantes: <span id="attempts" class="blink">${attempts}</span></p>
                 <form id="password-form">
-                    <input type="text" id="password-input" autocomplete="off" autofocus>
-                    <button type="submit">Enviar</button>
+                    <input type="text" 
+                           id="password-input" 
+                           autocomplete="off" 
+                           autofocus 
+                           placeholder="Escribe aquí..."
+                           class="glow-input">
+                    <button type="submit" class="pulse">¡Probar suerte!</button>
                 </form>
+                <p class="hint">Pista: El nombre del chico del mensaje (en minúsculas)</p>
             </div>
         `;
         terminal.insertAdjacentHTML('beforeend', passwordHTML);
@@ -106,11 +112,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showSuccessMessage() {
         const successMessages = [
-            "¡LO SIENTO!\n",
-            "Has salvado tu sistema...\n\n",
-            "PERO...\n\n",
-            "¡Tu corazón ya le pertenece a Jimmy! ❤️\n\n",
-            "DESDE AHORA ERES MÍA <3"
+            "¡VAYA, LO HAS CONSEGUIDO!\n",
+            "\nHas salvado tu sistema de mi malvado plan...\n\n",
+            "PERO ESPERA...\n\n",
+            "¡HE DESCUBIERTO ALGO MÁS INTERESANTE!\n\n",
+            "Mientras intentabas detenerme...\n",
+            "¡HE HACKEADO TU CORAZÓN! ❤️\n\n",
+            "Y ADIVINA QUIÉN MÁS ESTÁ AQUÍ...\n\n",
+            "¡ES JIMMY! 👋\n\n",
+            "Dice que le caes bien (y a mí también 😉)"
         ];
         
         let index = 0;
@@ -172,16 +182,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const message = messages[currentMessageIndex];
         let charIndex = 0;
         
-        if (currentMessageIndex === 0) terminal.textContent = '';
+        // Add double newline if not the first message
+        if (currentMessageIndex > 0) {
+            terminal.textContent += '\n\n';
+        } else {
+            terminal.textContent = '';
+        }
         
         const typeChar = () => {
             if (charIndex < message.length) {
+                // Add the next character
                 terminal.textContent += message.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeChar, Math.random() * 50 + 30);
+                // Scroll to bottom
                 terminal.scrollTop = terminal.scrollHeight;
+                // Random typing speed for more natural feel
+                const typingSpeed = message.endsWith('...') ? 100 : Math.random() * 50 + 30;
+                setTimeout(typeChar, typingSpeed);
             } else {
+                // Move to next message after a delay
                 currentMessageIndex++;
+                const delay = message.includes('...') ? 800 : 500; // Longer delay for "..."
                 setTimeout(() => {
                     if (currentMessageIndex < messages.length) {
                         typeMessage();
@@ -189,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         showPasswordInput();
                         passwordAttempted = true;
                     }
-                }, 1000);
+                }, delay);
             }
         };
         
