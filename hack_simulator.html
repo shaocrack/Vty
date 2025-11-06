@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Hackeo Avanzado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start-screen" class="screen">
+        <div class="start-content">
+            <h1>TERMINAL SHAOPRO</h1>
+            <p class="subtitle">¿Estás listo para esta aventura digital?</p>
+            <button id="start-btn">¡INICIAR!</button>
+            <p class="warning">ADVERTENCIA: Este es solo un juego de simulación</p>
+        </div>
+    </div>
+
+    <div id="hack-screen" class="screen hidden">
+        <div class="terminal">
+            <div id="terminal-content"></div>
+            <div id="typing" class="typing">_</div>
+            <!-- Password input will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <div id="end-screen" class="screen hidden">
+        <div class="message">
+            <h2>¡FELICIDADES!</h2>
+            <div class="message-content">
+                <p>Has completado la simulación de hackeo.</p>
+                <p class="final-message">Recuerda: El amor es el mejor hackeo de todos ❤️</p>
+                <p class="jimmy-message">- Jimmy</p>
+            </div>
+            <button id="restart-btn">¿Jugar de nuevo?</button>
+        </div>
+    </div>
+
+    <audio id="hackSound" loop>
+        <source src="oe.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
